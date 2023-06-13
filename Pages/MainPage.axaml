@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AvaloniaTesting.ViewModels"
+             x:Class="AvaloniaTesting.Pages.MainPage"
+             xmlns:ui="using:FluentAvalonia.UI.Controls">
+    <Panel>
+        <ui:TeachingTip IsLightDismissEnabled="False"
+                        Title="An update is available!"
+                        ActionButtonContent="View Update"
+                        CloseButtonContent="Dismiss"
+                        PreferredPlacement="Center"
+                        Name="UpdateNotification"/>
+        <Grid>
+            <DockPanel Margin="16">
+                <DockPanel DockPanel.Dock="Bottom" Margin="15 0 0 0">
+                    <Button HorizontalAlignment="Left"
+                            Margin="0 0 10 0"
+                            ToolTip.Tip="Attaches to Steam instance, enabling skin and scripting support based on your settings">
+                        Start Injection
+                    </Button>
+
+                    <Button Margin="0 0 15 0"
+                            HorizontalAlignment="Right"
+                            ToolTip.Tip="Starts or restarts Steam with the arguments given in settings"
+                            Content="Start Steam" />
+
+                    <DropDownButton Name="OpenFileDropDownButton"
+                                    Content="Open file"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 15 0">
+                        <DropDownButton.Flyout>
+                            <MenuFlyout Placement="Top">
+                                <Separator />
+                            </MenuFlyout>
+                        </DropDownButton.Flyout>
+                    </DropDownButton>
+                </DockPanel>
+                <Border BorderThickness="5">
+                    <ScrollViewer Margin="10">
+                        <TextBox Name="Output"
+                                 BorderThickness="0"
+                                 Focusable="False"
+                                 IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 IsTabStop="False"/>
+                    </ScrollViewer>
+                </Border>
+            </DockPanel>
+            <Border />
+        </Grid>
+    </Panel>
+</UserControl>
